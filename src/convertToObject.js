@@ -23,8 +23,9 @@ function convertToObject(sourceString) {
     }
 
     // Split the declaration into property and value
-    const parts = trimmedDeclaration.split(':');
-    const [property, value] = parts.map((item) => item.trim());
+    const colonIndex = trimmedDeclaration.indexOf(':');
+    const property = trimmedDeclaration.slice(0, colonIndex).trim();
+    const value = trimmedDeclaration.slice(colonIndex + 1).trim();
 
     // If both property and value exist, add to result
     if (property && value) {
